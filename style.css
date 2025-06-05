@@ -276,6 +276,7 @@ header .lead {
     }
     header .lead {
         font-size: 0.9em;
+        max-width: 100%;
     }
     #video-section h2,
     #timer-section h3,
@@ -289,7 +290,7 @@ header .lead {
         font-size: 1.4em; /* Ajustado */
     }
      .btn-purchase {
-        font-size: 1.5em; /* Ajustado para consistência */
+        font-size: 1.05em; /* Ajustado para consistência e melhor layout */
         padding: 12px 10px; /* Padding vertical aumentado para melhor toque */
         margin-bottom: 12px; /* Margem ligeiramente reduzida */
         width: 100%; /* Garante que o botão ocupe a largura total */
@@ -299,7 +300,10 @@ header .lead {
         font-size: 0.65em; 
     }
     #product-image-section .product-image {
-        max-width: 200%;
+        max-width: 90%; /* Corrigido para não estourar o layout e dar respiro */
+        display: block; /* Necessário para aplicar margin auto horizontalmente */
+        margin-left: auto; /* Centraliza a imagem */
+        margin-right: auto; /* Centraliza a imagem */
     }
     .product-thumb-button { /* Adicionado para controle fino */
         max-height: auto; 
