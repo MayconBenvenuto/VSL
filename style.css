@@ -88,7 +88,7 @@ header .lead {
 
 /* Estilos para a imagem miniatura dentro do botão */
 .product-thumb-button {
-    max-height: 50px; /* Reduzido um pouco para acompanhar o botão menor */
+    max-height: 70px; /* Aumentado de 50px */
     width: auto;
     margin-bottom: 0.4rem; /* Ajustado levemente */
 }
@@ -183,7 +183,7 @@ header .lead {
     }
 
     .product-thumb-button {
-        max-height: 45px; 
+        max-height: 60px; /* Aumentado de 45px */
     }
 
     .btn-purchase small {
@@ -235,7 +235,7 @@ header .lead {
     }
 
     .product-thumb-button {
-        max-height: 40px; 
+        max-height: 7em; /* Aumentado de 40px */
     }
 
     .btn-purchase small {
@@ -291,5 +291,8 @@ header .lead {
     }
     #product-image-section .product-image {
         max-width: 85%;
+    }
+    .product-thumb-button { /* Adicionado para controle fino */
+        max-height: 45px; 
     }
 } 
