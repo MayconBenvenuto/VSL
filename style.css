@@ -70,7 +70,7 @@ header .lead {
 
 /* Footer - Botões de Compra */
 #cta-section {
-    background-color: #ff8c00; /* Alterado para laranja */
+    background-color: #ff8c00b9; /* Alterado para laranja */
     padding: 30px 0;
     border-top: 5px solid #ff4500; /* Mantendo uma borda laranja mais escura ou ajustando */
     margin-top: 30px;
@@ -120,6 +120,15 @@ header .lead {
     box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1); /* Sombra mais clara para fundo preto */
     background-color: #1a1a1a; /* Preto um pouco mais claro no hover */
     border-color: #555555;
+}
+
+/* Estilo para o preço parcelado */
+.installment-price {
+    color: #ff6a00; /* Laranja vibrante */
+    font-size: 1.5em; /* Aumenta o tamanho da fonte em relação ao texto do botão */
+    font-weight: bold; /* Opcional: para dar mais destaque */
+    display: block; /* Garante que o <br> após ele funcione como esperado */
+    margin: 0.2em 0; /* Adiciona um pequeno espaço vertical */
 }
 
 /* Remove estilos antigos de cores específicas se ainda existirem ou para evitar conflitos */
@@ -251,7 +260,7 @@ header .lead {
        ou ajustar o HTML para que o Bootstrap cuide do espaçamento (ex: usando 'gap' no container pai se for flex/grid) */
 
     #product-image-section .product-image {
-        max-width: 40%; /* % para melhor adaptação em telas muito estreitas */
+        max-width: 70%; /* % para melhor adaptação em telas muito estreitas */
     }
 
     /* Ajustes finos para espaçamento do container principal em telas pequenas */
@@ -280,7 +289,7 @@ header .lead {
         font-size: 1.4em; /* Ajustado */
     }
      .btn-purchase {
-        font-size: 1em; /* Ajustado para consistência */
+        font-size: 1.5em; /* Ajustado para consistência */
         padding: 12px 10px; /* Padding vertical aumentado para melhor toque */
         margin-bottom: 12px; /* Margem ligeiramente reduzida */
         width: 100%; /* Garante que o botão ocupe a largura total */
@@ -290,9 +299,9 @@ header .lead {
         font-size: 0.65em; 
     }
     #product-image-section .product-image {
-        max-width: 85%;
+        max-width: 200%;
     }
     .product-thumb-button { /* Adicionado para controle fino */
-        max-height: 45px; 
+        max-height: auto; 
     }
 } 
