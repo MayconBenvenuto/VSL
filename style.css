@@ -151,6 +151,16 @@ header .lead {
     border-color: transparent !important;
 }
 
+/* Keyframes para animação de flutuação */
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* Move 5 pixels para cima */
+  }
+}
+
 /* Responsividade */
 @media (max-width: 768px) { /* Tablets e celulares maiores em modo paisagem */
     header h1 {
@@ -189,6 +199,7 @@ header .lead {
     .btn-purchase {
         font-size: 1.1em; 
         padding: 10px 15px; 
+        animation: floatAnimation 3s ease-in-out infinite; /* Adiciona a animação de flutuação */
     }
 
     .product-thumb-button {
