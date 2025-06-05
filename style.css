@@ -227,10 +227,11 @@ header .lead {
     }
 
     .btn-purchase {
-        font-size: 1em; 
-        padding: 12px 10px; /* Padding ajustado para mais altura e menos largura interna */
-        width: auto; /* Garante que Bootstrap e btn-block controlem a largura */
+        font-size: 1.05em; /* Ligeiramente aumentado para melhor legibilidade */
+        padding: 12px 15px; /* Ajustado para um padding mais equilibrado */
+        width: 100%; /* Faz o botão ocupar a largura total do contêiner pai */
         margin-bottom: 15px; 
+        box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
     }
 
     .product-thumb-button {
@@ -238,13 +239,16 @@ header .lead {
     }
 
     .btn-purchase small {
-        font-size: 0.65em; 
+        font-size: 0.7em; /* Ajustado para manter proporção */
     }
 
     /* Remover margem do último botão no grupo para evitar espaçamento duplo com o footer */
-    #cta-section .col-md-4:last-child .btn-purchase {
+    #cta-section .col-md-4:last-child .btn-purchase { /* Se os botões estiverem dentro de col-md-4 */
         margin-bottom: 0;
     }
+    /* Se os botões não estiverem em col-md-4, mas diretamente em um container flex ou block,
+       você pode precisar de um seletor mais genérico para o último filho,
+       ou ajustar o HTML para que o Bootstrap cuide do espaçamento (ex: usando 'gap' no container pai se for flex/grid) */
 
     #product-image-section .product-image {
         max-width: 40%; /* % para melhor adaptação em telas muito estreitas */
@@ -276,9 +280,14 @@ header .lead {
         font-size: 1.4em; /* Ajustado */
     }
      .btn-purchase {
-        font-size: 0.9em; 
-        padding: 10px 8px; 
-        margin-bottom: 10px; 
+        font-size: 1em; /* Ajustado para consistência */
+        padding: 12px 10px; /* Padding vertical aumentado para melhor toque */
+        margin-bottom: 12px; /* Margem ligeiramente reduzida */
+        width: 100%; /* Garante que o botão ocupe a largura total */
+        box-sizing: border-box;
+    }
+    .btn-purchase small {
+        font-size: 0.65em; 
     }
     #product-image-section .product-image {
         max-width: 85%;
