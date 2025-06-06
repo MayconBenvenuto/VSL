@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Gota do Himalaia</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .policy-container {
+            padding: 40px 15px;
+            line-height: 1.8;
+        }
+        .policy-container h1 {
+            color: #ff8c00;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .policy-container h2 {
+            color: #ffc107;
+            margin-top: 30px;
+        }
+        .policy-container a {
+            color: #ffc107;
+        }
+        .site-header {
+            background: linear-gradient(to right, #d17d00, #c80000);
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .site-header a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html">Gota do Himalaia</a>
+    </header>
+
+    <main class="container policy-container">
+        <h1>Política de Privacidade</h1>
+        <p id="update-date"><strong>Última atualização:</strong> [INSERIR DATA]</p>
+
+        <div class="alert alert-warning">
+            <strong>Atenção:</strong> Este é um modelo de Política de Privacidade. É crucial que você revise, personalize e consulte um profissional jurídico para garantir conformidade com a LGPD e outras regulamentações.
+        </div>
+
+        <h2>1. Coleta de Informações</h2>
+        <p>Coletamos informações que você nos fornece diretamente, como nome, e-mail e telefone, ao preencher formulários de contato ou de compra. Também podemos coletar informações automaticamente através de cookies e pixels de rastreamento, como seu endereço IP, tipo de navegador e páginas visitadas, para fins de marketing e análise.</p>
+
+        <h2>2. Uso das Informações</h2>
+        <p>As informações que coletamos são usadas para:</p>
+        <ul>
+            <li>Processar suas transações e entregar os produtos solicitados.</li>
+            <li>Melhorar nosso site e a experiência do cliente.</li>
+            <li>Comunicar ofertas, promoções e novidades (marketing), sempre oferecendo a opção de cancelamento da inscrição.</li>
+            <li>Cumprir obrigações legais.</li>
+        </ul>
+
+        <h2>3. Compartilhamento de Informações</h2>
+        <p>Não vendemos, trocamos ou transferimos para terceiros as suas informações de identificação pessoal, exceto para parceiros confiáveis que nos auxiliam na operação do nosso site ou na condução dos nossos negócios (como plataformas de pagamento e ferramentas de marketing), desde que essas partes concordem em manter essas informações confidenciais.</p>
+
+        <h2>4. Segurança dos Dados</h2>
+        <p>Implementamos uma variedade de medidas de segurança para manter a segurança de suas informações pessoais. As transações financeiras são processadas através de um gateway de pagamento seguro e não são armazenadas ou processadas em nossos servidores.</p>
+        
+        <h2>5. Cookies</h2>
+        <p>Usamos cookies para entender e salvar suas preferências para futuras visitas e compilar dados agregados sobre o tráfego e a interação no site, para que possamos oferecer melhores experiências e ferramentas no futuro.</p>
+
+        <h2>6. Seus Direitos (LGPD)</h2>
+        <p>Você tem o direito de acessar, corrigir, anonimizar ou excluir suas informações pessoais. Para exercer esses direitos, entre em contato conosco através do e-mail abaixo.</p>
+
+        <h2>7. Contato</h2>
+        <p>Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco em [SEU EMAIL DE CONTATO].</p>
+    </main>
+
+    <footer class="text-center py-4" style="background-color: #0a0a0a; color: #777;">
+        <div class="container">
+            <p>&copy; 2024 Gota do Himalaia. Todos os direitos reservados.</p>
+            <p>
+                <a href="termos-de-uso.html" class="text-white-50">Termos de Uso</a> | 
+                <a href="politica-de-privacidade.html" class="text-white-50">Política de Privacidade</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const updateElement = document.getElementById('update-date');
+            
+            if (updateElement) {
+                const now = new Date();
+                now.setHours(now.getHours() - 3);
+                
+                const options = {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(now).replace(',', ' às');
+                
+                updateElement.innerHTML = `<strong>Última atualização:</strong> ${formattedDate}`;
+            }
+        });
+    </script>
+
+</body>
+</html> 

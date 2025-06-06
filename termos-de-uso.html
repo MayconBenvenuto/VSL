@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Uso - Gota do Himalaia</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .policy-container {
+            padding: 40px 15px;
+            line-height: 1.8;
+        }
+        .policy-container h1 {
+            color: #ff8c00;
+            border-bottom: 2px solid #ff8c00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .policy-container h2 {
+            color: #ffc107;
+            margin-top: 30px;
+        }
+        .policy-container a {
+            color: #ffc107;
+        }
+        .site-header {
+            background: linear-gradient(to right, #d17d00, #c80000);
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .site-header a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="index.html">Gota do Himalaia</a>
+    </header>
+
+    <main class="container policy-container">
+        <h1>Termos de Uso</h1>
+        <p id="update-date"><strong>Última atualização:</strong> [INSERIR DATA]</p>
+
+        <div class="alert alert-warning">
+            <strong>Atenção:</strong> Este é um modelo de Termos de Uso. É crucial que você revise, personalize e consulte um profissional jurídico para garantir que ele atenda a todas as necessidades e regulamentações do seu negócio.
+        </div>
+
+        <h2>1. Aceitação dos Termos</h2>
+        <p>Ao acessar e usar este site, você aceita e concorda em estar vinculado aos termos e disposições deste acordo. Além disso, ao usar os serviços específicos deste site, você estará sujeito a quaisquer diretrizes ou regras aplicáveis postadas para tais serviços.</p>
+
+        <h2>2. Uso do Site</h2>
+        <p>Este site e seu conteúdo são oferecidos apenas para fins informativos. Você concorda em não usar o site para fins ilegais ou proibidos por estes termos.</p>
+
+        <h2>3. Propriedade Intelectual</h2>
+        <p>O site e seu conteúdo original, recursos e funcionalidades são de propriedade da Gota do Himalaia e são protegidos por direitos autorais internacionais, marcas registradas, patentes, segredos comerciais e outras leis de propriedade intelectual ou direitos de propriedade.</p>
+
+        <h2>4. Links para Outros Sites</h2>
+        <p>Nosso site pode conter links para sites de terceiros que não são de propriedade ou controlados por nós. Não temos controle e não assumimos responsabilidade pelo conteúdo, políticas de privacidade ou práticas de quaisquer sites ou serviços de terceiros.</p>
+        
+        <h2>5. Limitação de Responsabilidade</h2>
+        <p>Em nenhuma circunstância o proprietário do site será responsável por quaisquer danos diretos, indiretos, incidentais, especiais ou consequenciais resultantes do uso ou da incapacidade de usar o site.</p>
+
+        <h2>6. Alterações nos Termos</h2>
+        <p>Reservamo-nos o direito de modificar estes termos a qualquer momento. Decidiremos, a nosso critério, se notificaremos os usuários sobre as alterações. O uso continuado do site após qualquer alteração constituirá sua aceitação dos novos termos.</p>
+
+        <h2>7. Contato</h2>
+        <p>Se você tiver alguma dúvida sobre estes Termos, entre em contato conosco em <b>suporte@mfpdigital.com.br</b>.</p>
+    </main>
+
+    <footer class="text-center py-4" style="background-color: #0a0a0a; color: #777;">
+        <div class="container">
+            <p>&copy; 2024 Gota do Himalaia. Todos os direitos reservados.</p>
+            <p>
+                <a href="termos-de-uso.html" class="text-white-50">Termos de Uso</a> | 
+                <a href="politica-de-privacidade.html" class="text-white-50">Política de Privacidade</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const updateElement = document.getElementById('update-date');
+            
+            if (updateElement) {
+                const now = new Date();
+                // Definindo um horário de atualização diferente
+                now.setHours(now.getHours() - 5);
+                
+                const options = {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                };
+                const formattedDate = new Intl.DateTimeFormat('pt-BR', options).format(now).replace(',', ' às');
+                
+                updateElement.innerHTML = `<strong>Última atualização:</strong> ${formattedDate}`;
+            }
+        });
+    </script>
+
+</body>
+</html> 
