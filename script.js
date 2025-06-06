@@ -64,13 +64,33 @@ function initVimeoPlayer() {
 
     // Função para alternar o som
     let isMuted = true;
-    soundToggleBtn.addEventListener('click', function() {
-        isMuted = !isMuted;
-        player.setVolume(isMuted ? 0 : 1);
-        
-        // Atualiza o ícone e texto do botão
-        soundIcon.textContent = isMuted ? '🔇' : '🔊';
-        soundText.textContent = isMuted ? 'Ativar Som' : 'Desativar Som';
+    soundToggleBtn.addEventListener('click', async function() {
+        try {
+            isMuted = !isMuted;
+            
+            // Primeiro, pausa o vídeo
+            await player.pause();
+            
+            // Atualiza o volume
+            await player.setVolume(isMuted ? 0 : 1);
+            
+            // Atualiza o ícone e texto do botão
+            soundIcon.textContent = isMuted ? '🔇' : '🔊';
+            soundText.textContent = isMuted ? 'Ativar Som' : 'Desativar Som';
+            
+            // Retoma a reprodução
+            await player.play();
+            
+            // Log para debug
+            console.log('Estado do som:', isMuted ? 'Mudo' : 'Com som');
+        } catch (error) {
+            console.error('Erro ao alternar som:', error);
+        }
+    });
+    
+    // Adiciona listener para eventos de volume
+    player.on('volumechange', function(data) {
+        console.log('Volume alterado:', data.volume);
     });
     
     player.on('play', function() {
