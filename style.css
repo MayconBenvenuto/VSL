@@ -45,11 +45,12 @@ header .lead {
 
 /* Melhorias na responsividade do vídeo */
 /* Estilos para o contêiner que envolve o código de incorporação do Vimeo */
-.vimeo-embed-wrapper {
+.vimeo-video-display {
     position: relative; /* Permite aplicar borda/sombra corretamente */
     background: #000; /* Fundo preto */
-    margin: 20px auto; /* Centraliza e adiciona margem */
-    max-width: 100%; /* Garante que não ultrapasse a largura do pai */
+    margin: 20px auto 40px auto; /* Centraliza e adiciona margem superior e inferior */
+    max-width: 800px; /* Define uma largura máxima razoável */
+    width: 100%; /* Garante que ocupe a largura disponível até o max-width */
     border: 2px solid rgba(255, 255, 255, 0.2); /* Borda sutil consistente */
     box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra moderna consistente */
     border-radius: 10px; /* Bordas arredondadas */
@@ -58,14 +59,14 @@ header .lead {
 }
 
 /* Garantir que o div interno do Vimeo e o iframe preencham o contêiner */
-.vimeo-embed-wrapper > div {
+.vimeo-video-display > div {
     /* O Vimeo já aplica position: relative e padding-bottom aqui */
     width: 100%;
     height: 0;
     /* O padding-bottom é definido inline pelo Vimeo */
 }
 
-.vimeo-embed-wrapper iframe {
+.vimeo-video-display iframe {
     /* O Vimeo já aplica position: absolute, top: 0, left: 0, width: 100%, height: 100% inline */
     display: block;
     border: none; /* Remover borda padrão do iframe */
