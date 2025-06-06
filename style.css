@@ -122,11 +122,11 @@ header .lead {
 }
 
 #product-image-section .product-image {
-    max-width: 7.5em; /* Define uma largura máxima para a imagem */
-    height: auto; /* Mantém a proporção da imagem */
-    border-radius: 10px; /* Bordas arredondadas se desejar */
-    border: 2px solid rgba(255, 255, 255, 0.2); /* Borda sutil */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Sombra moderna */
+    max-width: 7.5em;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 /* Seção do Temporizador */
@@ -321,7 +321,7 @@ header .lead {
     }
 }
 
-@media (max-width: 576px) { /* Celulares em modo retrato */
+@media (max-width: 576px) {
     header h1 {
         font-size: 1.5em;
         padding: 0 10px;
@@ -374,13 +374,23 @@ header .lead {
        ou ajustar o HTML para que o Bootstrap cuide do espaçamento (ex: usando 'gap' no container pai se for flex/grid) */
 
     #product-image-section .product-image {
-        max-width: 70%; /* % para melhor adaptação em telas muito estreitas */
+        max-width: 5em; /* Reduzindo o tamanho para dispositivos móveis */
     }
 
     /* Ajustes finos para espaçamento do container principal em telas pequenas */
     main.container.my-4 {
         margin-top: 1rem !important; /* Bootstrap my-4 = 1.5rem, reduzindo */
         margin-bottom: 1rem !important;
+    }
+
+    .vimeo-video-display {
+        margin: 10px auto 20px auto;
+        border-radius: 8px;
+    }
+    
+    .vimeo-video-display iframe {
+        width: 100% !important;
+        height: 100% !important;
     }
 }
 
@@ -395,6 +405,10 @@ header .lead {
 
     .installment-price {
         font-size: 1.2em;
+    }
+
+    #product-image-section .product-image {
+        max-width: 4em; /* Ainda menor para telas muito pequenas */
     }
 }
 

@@ -48,6 +48,17 @@ function initCountdown() {
 function initVimeoPlayer() {
     const player = new Vimeo.Player(document.querySelector('iframe[src*="vimeo.com"]'));
     
+    // Configurações para autoplay em dispositivos móveis
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+        // Força o autoplay em dispositivos móveis
+        player.setVolume(0); // Muda para mudo (necessário para autoplay em alguns dispositivos)
+        player.play().catch(function(error) {
+            console.log('Erro ao iniciar vídeo automaticamente:', error);
+        });
+    }
+    
     player.on('play', function() {
         // Rastreia visualização do vídeo
         if (typeof fbq !== 'undefined') {
