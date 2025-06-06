@@ -122,11 +122,8 @@ header .lead {
 }
 
 #product-image-section .product-image {
-    max-width: 7.5em;
+    max-width: 6.5em;
     height: auto;
-    border-radius: 10px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 /* Seção do Temporizador */
@@ -374,7 +371,7 @@ header .lead {
        ou ajustar o HTML para que o Bootstrap cuide do espaçamento (ex: usando 'gap' no container pai se for flex/grid) */
 
     #product-image-section .product-image {
-        max-width: 5em; /* Reduzindo o tamanho para dispositivos móveis */
+        max-width: 3em; /* Reduzindo o tamanho para dispositivos móveis */
     }
 
     /* Ajustes finos para espaçamento do container principal em telas pequenas */
@@ -408,7 +405,7 @@ header .lead {
     }
 
     #product-image-section .product-image {
-        max-width: 4em; /* Ainda menor para telas muito pequenas */
+        max-width: 2em; /* Ainda menor para telas muito pequenas */
     }
 }
 
