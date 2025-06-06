@@ -47,6 +47,9 @@ function initCountdown() {
 // Função para inicializar o player do Vimeo
 function initVimeoPlayer() {
     const player = new Vimeo.Player(document.querySelector('iframe[src*="vimeo.com"]'));
+    const soundToggleBtn = document.getElementById('sound-toggle');
+    const soundIcon = soundToggleBtn.querySelector('.sound-icon');
+    const soundText = soundToggleBtn.querySelector('.sound-text');
     
     // Configurações para autoplay em dispositivos móveis
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -58,6 +61,17 @@ function initVimeoPlayer() {
             console.log('Erro ao iniciar vídeo automaticamente:', error);
         });
     }
+
+    // Função para alternar o som
+    let isMuted = true;
+    soundToggleBtn.addEventListener('click', function() {
+        isMuted = !isMuted;
+        player.setVolume(isMuted ? 0 : 1);
+        
+        // Atualiza o ícone e texto do botão
+        soundIcon.textContent = isMuted ? '🔇' : '🔊';
+        soundText.textContent = isMuted ? 'Ativar Som' : 'Desativar Som';
+    });
     
     player.on('play', function() {
         // Rastreia visualização do vídeo
