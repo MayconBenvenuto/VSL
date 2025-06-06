@@ -186,12 +186,19 @@ header .lead {
     margin-bottom: 0.4rem; /* Ajustado levemente */
 }
 
+/* Animação Gradiente */
+@keyframes glowing-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 .btn-purchase {
     padding: 12px 18px; /* Padding reduzido */
     font-size: 1.3em; /* Fonte aumentada */
     font-weight: bold;
     border-radius: 8px;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; */ /* Removido transição de background-color */
     background-color: #000000; /* Alterado para preto */
     border: 1px solid #333333; /* Adicionada uma borda sutil para definição */
     color: #ffffff !important; /* Garante que o texto seja branco */
@@ -200,6 +207,12 @@ header .lead {
     align-items: center; 
     justify-content: center; 
     text-align: center;
+    
+    /* Estilos para o gradiente animado */
+    background: linear-gradient(90deg, #000, #a55b00, #ff040091, #000); /* Gradiente com as cores */
+    background-size: 200% 200%; /* Tamanho do background maior para permitir a animação */
+    animation: glowing-gradient 1.5s ease infinite; /* Aplica a animação */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Mantém outras transições */
 }
 
 .btn-purchase small {
