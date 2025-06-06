@@ -10,20 +10,21 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(to right, #ff8c00, #ff0400); /* Degradê laranja/vermelho */
+    background: linear-gradient(to right, #d17d00, #c80000); /* Degradê mais sóbrio */
     color: #ffffff;
     padding: 20px 0;
-    border-bottom: 5px solid #ff4500;
+    border-bottom: 4px solid #b33c00;
 }
 
 header h1 {
     font-size: 2.5em; /* Tamanho da manchete */
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 3px 3px rgba(0,0,0,0.4), 0px 6px 10px rgba(0,0,0,0.2), 0px 12px 20px rgba(0,0,0,0.2);
 }
 
 header .lead {
     font-size: 1.2em;
+    letter-spacing: 0.5px; /* Adiciona espaçamento entre as letras */
 }
 
 /* Seção do Vídeo */
@@ -50,18 +51,22 @@ header .lead {
 #timer-section h3 {
     color: #ffc107; /* Amarelo para o título do temporizador */
     font-size: 1.8em;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #countdown-timer {
     font-size: 3em;
     font-weight: bold;
-    color: #ff4500; /* Laranja para os números do temporizador */
-    background-color: rgba(0,0,0,0.3);
-    padding: 15px;
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.2);
+    padding: 15px 30px;
     border-radius: 10px;
     display: inline-block;
     margin-bottom: 10px;
-    border: 2px solid #ff8c00;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 #timer-section p {
