@@ -3,6 +3,156 @@ function formatTime(time) {
     return time < 10 ? `0${time}` : time;
 }
 
+// Função para inicializar o temporizador
+function initCountdown() {
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+    const secondsElement = document.getElementById('seconds');
+
+    if (!hoursElement || !minutesElement || !secondsElement) {
+        console.warn('Elementos do temporizador não encontrados');
+        return;
+    }
+
+    // Define o tempo final (24 horas a partir de agora)
+    const endTime = new Date();
+    endTime.setHours(endTime.getHours() + 24);
+
+    function updateTimer() {
+        const now = new Date();
+        const timeLeft = endTime - now;
+
+        if (timeLeft <= 0) {
+            // Reset do temporizador quando chegar a zero
+            endTime.setHours(endTime.getHours() + 24);
+            return;
+        }
+
+        // Calcula horas, minutos e segundos
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        // Atualiza os elementos com zero à esquerda
+        hoursElement.textContent = hours.toString().padStart(2, '0');
+        minutesElement.textContent = minutes.toString().padStart(2, '0');
+        secondsElement.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    // Atualiza imediatamente e depois a cada segundo
+    updateTimer();
+    return setInterval(updateTimer, 1000);
+}
+
+// Função para inicializar o player do Vimeo
+function initVimeoPlayer() {
+    const player = new Vimeo.Player(document.querySelector('iframe[src*="vimeo.com"]'));
+    
+    player.on('play', function() {
+        // Rastreia visualização do vídeo
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'VideoPlay');
+        }
+    });
+
+    player.on('ended', function() {
+        // Rastreia conclusão do vídeo
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'VideoComplete');
+        }
+    });
+
+    return player;
+}
+
+// Função para inicializar animações
+function initAnimations() {
+    const buttons = document.querySelectorAll('.btn-purchase');
+    
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.03)';
+        });
+
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Função para inicializar o rastreamento de cliques
+function initClickTracking() {
+    const buttons = document.querySelectorAll('.btn-purchase');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const product = this.getAttribute('data-product');
+            
+            // Rastreia clique no botão
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: product
+                });
+            }
+        });
+    });
+}
+
+// Função para verificar performance
+function checkPerformance() {
+    if ('performance' in window) {
+        const timing = window.performance.timing;
+        const loadTime = timing.loadEventEnd - timing.navigationStart;
+        
+        if (loadTime > 3000) {
+            console.warn('Tempo de carregamento alto:', loadTime + 'ms');
+        }
+    }
+}
+
+// Função para lidar com erros
+function handleErrors() {
+    window.onerror = function(msg, url, lineNo, columnNo, error) {
+        console.error('Erro:', msg, 'URL:', url, 'Linha:', lineNo, 'Coluna:', columnNo, 'Erro:', error);
+        return false;
+    };
+}
+
+// Função principal de inicialização
+function init() {
+    try {
+        // Inicializa o temporizador
+        const timerInterval = initCountdown();
+        
+        // Inicializa o player do Vimeo
+        const player = initVimeoPlayer();
+        
+        // Inicializa animações
+        initAnimations();
+        
+        // Inicializa rastreamento de cliques
+        initClickTracking();
+        
+        // Verifica performance
+        checkPerformance();
+        
+        // Configura tratamento de erros
+        handleErrors();
+        
+        // Limpa o temporizador quando a página for fechada
+        window.addEventListener('beforeunload', function() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        });
+    } catch (error) {
+        console.error('Erro na inicialização:', error);
+    }
+}
+
+// Inicializa quando o DOM estiver pronto
+document.addEventListener('DOMContentLoaded', init);
+
 // --- TEMPORIZADOR DE ESCASSEZ ---
 document.addEventListener('DOMContentLoaded', function() {
     // Defina a duração do temporizador (exemplo: 2 horas)

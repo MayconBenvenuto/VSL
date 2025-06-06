@@ -109,31 +109,35 @@
 
     <!-- Scripts -->
     <!-- jQuery e Popper.js (necessários para o Bootstrap) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
     <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
     <!-- Script Personalizado -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
     <!-- Exemplo de Pixel de Rastreamento (substitua pelo seu) -->
     <!-- Facebook Pixel Code -->
     <script>
-    //   !function(f,b,e,v,n,t,s)
-    //   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    //   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    //   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    //   n.queue=[];t=b.createElement(e);t.async=!0;
-    //   t.src=v;s=b.getElementsByTagName(e)[0];
-    //   s.parentNode.insertBefore(t,s)}(window, document,'script',
-    //   'https://connect.facebook.net/en_US/fbevents.js');
-    //   fbq('init', 'SEU_PIXEL_ID');
-    //   fbq('track', 'PageView');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'SEU_PIXEL_ID');
+        fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
     <!-- End Facebook Pixel Code -->
 
+    <!-- Preload de recursos críticos -->
+    <link rel="preload" href="produto-imagem.png" as="image">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" as="style">
 </body>
 </html> 

@@ -6,6 +6,9 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Evitar scroll horizontal */
+    min-height: 100vh; /* Garante altura mínima */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header */
@@ -14,6 +17,8 @@ header {
     color: #ffffff;
     padding: 20px 0;
     border-bottom: 4px solid #b33c00;
+    position: relative;
+    z-index: 1000; /* Garante que o header fique sempre visível */
 }
 
 header h1 {
@@ -34,20 +39,22 @@ header .lead {
 }
 
 .embed-responsive {
-    border: 5px solid #ff4500; /* Borda laranja ao redor do vídeo */
+    border: 5px solid #ff4500;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(255, 69, 0, 0.5);
     overflow: hidden;
     background: #000;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .embed-responsive iframe {
-    border: none;
-    width: 100%;
-    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* Ajuste específico para o player do Vimeo */
@@ -56,6 +63,7 @@ header .lead {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; /* Proporção 16:9 */
+    background: #000;
 }
 
 /* Seção da Imagem do Produto */
@@ -241,8 +249,8 @@ header .lead {
 
 @media (max-width: 576px) { /* Celulares em modo retrato */
     header h1 {
-        font-size: 1.7em; /* Ajustado de 1.8em, e de 1.6em na lógica anterior */
-        line-height: 1.3;
+        font-size: 1.5em;
+        padding: 0 10px;
     }
 
     header .lead {
@@ -262,24 +270,21 @@ header .lead {
     }
 
     #cta-section {
-        padding: 15px 10px; /* Padding vertical e horizontal ajustados */
-    }
-
-    #countdown-timer {
-        font-size: 1.6em; /* Ajustado de 1.5em */
         padding: 10px;
     }
 
+    #countdown-timer {
+        font-size: 1.4em;
+        padding: 8px;
+    }
+
     .btn-purchase {
-        font-size: 1.05em; /* Ligeiramente aumentado para melhor legibilidade */
-        padding: 12px 15px; /* Ajustado para um padding mais equilibrado */
-        width: 100%; /* Faz o botão ocupar a largura total do contêiner pai */
-        margin-bottom: 15px; 
-        box-sizing: border-box; /* Garante que padding e border não aumentem a largura total */
+        font-size: 1em;
+        padding: 10px;
     }
 
     .product-thumb-button {
-        max-height: 7em; /* Aumentado de 40px */
+        max-height: 50px;
     }
 
     .btn-purchase small {
@@ -305,42 +310,313 @@ header .lead {
     }
 }
 
-@media (max-width: 400px) { /* Telas muito pequenas */
+@media (max-width: 360px) {
     header h1 {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
-    header .lead {
+
+    .btn-purchase {
         font-size: 0.9em;
-        max-width: 100%;
     }
-    #video-section h2,
-    #timer-section h3,
-    #cta-section h2 {
-        font-size: 1.2em; 
+
+    .installment-price {
+        font-size: 1.2em;
     }
-     p, #timer-section p, #cta-section p {
-        font-size: 0.8em; 
-    }
+}
+
+/* Melhorias de acessibilidade */
+.btn-purchase:focus {
+    outline: 3px solid #ff8c00;
+    outline-offset: 2px;
+}
+
+/* Correção para links no modo escuro */
+a {
+    color: #ff8c00;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+/* Melhorias no contraste */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Correção para imagens responsivas */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Melhorias no footer */
+footer {
+    margin-top: auto; /* Empurra o footer para baixo */
+    padding: 20px 0;
+}
+
+/* Correção para o temporizador em telas pequenas */
+@media (max-width: 400px) {
     #countdown-timer {
-        font-size: 1.4em; /* Ajustado */
+        font-size: 1.2em;
+        padding: 5px 10px;
     }
-     .btn-purchase {
-        font-size: 1.05em; /* Ajustado para consistência e melhor layout */
-        padding: 12px 10px; /* Padding vertical aumentado para melhor toque */
-        margin-bottom: 12px; /* Margem ligeiramente reduzida */
-        width: 100%; /* Garante que o botão ocupe a largura total */
-        box-sizing: border-box;
+}
+
+/* Melhorias na performance de animações */
+.btn-purchase {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Melhorias na legibilidade */
+p, li {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Melhorias na performance de rolagem */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Correção para o preload de fontes */
+@font-face {
+    font-family: 'Poppins';
+    font-display: swap;
+}
+
+/* Melhorias na acessibilidade do foco */
+:focus {
+    outline: 2px solid #ff8c00;
+    outline-offset: 2px;
+}
+
+/* Correção para o contraste em textos */
+.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Melhorias na performance de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Correção para o alinhamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .text-center {
+        text-align: center !important;
     }
-    .btn-purchase small {
-        font-size: 0.65em; 
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
     }
-    #product-image-section .product-image {
-        max-width: 90%; /* Corrigido para não estourar o layout e dar respiro */
-        display: block; /* Necessário para aplicar margin auto horizontalmente */
-        margin-left: auto; /* Centraliza a imagem */
-        margin-right: auto; /* Centraliza a imagem */
+}
+
+/* Melhorias na performance de animações */
+@keyframes floatAnimation {
+    0%, 100% {
+        transform: translateY(0);
     }
-    .product-thumb-button { /* Adicionado para controle fino */
-        max-height: auto; 
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Correção para o preload de recursos */
+.preload {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Melhorias na acessibilidade do contraste */
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+/* Correção para o alinhamento de botões em dispositivos móveis */
+@media (max-width: 576px) {
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Melhorias na performance de fontes */
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+/* Correção para o espaçamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .my-4 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Melhorias na acessibilidade do contraste */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Correção para o alinhamento de imagens */
+.product-image {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Melhorias na performance de animações */
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+/* Correção para o preload de recursos */
+[rel="preload"] {
+    as: style;
+    onload: "this.onload=null;this.rel='stylesheet'";
+}
+
+/* Melhorias na acessibilidade do foco */
+:focus-visible {
+    outline: 2px solid #ff8c00;
+    outline-offset: 2px;
+}
+
+/* Correção para o alinhamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+    .col, [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Melhorias na performance de fontes */
+@font-face {
+    font-family: 'Poppins';
+    font-display: swap;
+    font-weight: 400;
+    src: local('Poppins Regular'), local('Poppins-Regular'),
+         url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2') format('woff2');
+}
+
+/* Correção para o contraste em textos */
+.text-muted {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Melhorias na performance de imagens */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    will-change: transform;
+}
+
+/* Correção para o alinhamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .text-center {
+        text-align: center !important;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Melhorias na acessibilidade do contraste */
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+/* Correção para o alinhamento de botões em dispositivos móveis */
+@media (max-width: 576px) {
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+}
+
+/* Melhorias na performance de fontes */
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+/* Correção para o espaçamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .my-4 {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Melhorias na acessibilidade do contraste */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Correção para o alinhamento de imagens */
+.product-image {
+    margin: 0 auto;
+    display: block;
+}
+
+/* Melhorias na performance de animações */
+.animated {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+/* Correção para o preload de recursos */
+[rel="preload"] {
+    as: style;
+    onload: "this.onload=null;this.rel='stylesheet'";
+}
+
+/* Melhorias na acessibilidade do foco */
+:focus-visible {
+    outline: 2px solid #ff8c00;
+    outline-offset: 2px;
+}
+
+/* Correção para o alinhamento em dispositivos móveis */
+@media (max-width: 576px) {
+    .row {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+    
+    .col, [class*="col-"] {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 } 
