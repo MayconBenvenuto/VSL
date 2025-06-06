@@ -64,33 +64,52 @@ function initVimeoPlayer() {
 
     // Função para alternar o som
     let isMuted = true;
-    soundToggleBtn.addEventListener('click', async function() {
+    
+    // Função para atualizar a interface
+    function updateSoundUI() {
+        soundIcon.textContent = isMuted ? '🔇' : '🔊';
+        soundText.textContent = isMuted ? 'Ativar Som' : 'Desativar Som';
+    }
+
+    // Função para alternar o som
+    async function toggleSound() {
         try {
-            isMuted = !isMuted;
+            // Obtém o estado atual do volume
+            const volume = await player.getVolume();
             
-            // Primeiro, pausa o vídeo
-            await player.pause();
+            // Alterna o estado
+            isMuted = volume > 0;
             
-            // Atualiza o volume
+            // Define o novo volume
             await player.setVolume(isMuted ? 0 : 1);
             
-            // Atualiza o ícone e texto do botão
-            soundIcon.textContent = isMuted ? '🔇' : '🔊';
-            soundText.textContent = isMuted ? 'Ativar Som' : 'Desativar Som';
+            // Atualiza a interface
+            updateSoundUI();
             
-            // Retoma a reprodução
-            await player.play();
-            
-            // Log para debug
-            console.log('Estado do som:', isMuted ? 'Mudo' : 'Com som');
+            console.log('Volume alterado para:', isMuted ? 'Mudo' : 'Com som');
         } catch (error) {
             console.error('Erro ao alternar som:', error);
         }
+    }
+
+    // Adiciona o evento de clique
+    soundToggleBtn.addEventListener('click', function(e) {
+        e.preventDefault(); // Previne o comportamento padrão
+        e.stopPropagation(); // Impede a propagação do evento
+        
+        // Adiciona uma classe para feedback visual
+        this.classList.add('clicked');
+        setTimeout(() => this.classList.remove('clicked'), 200);
+        
+        // Chama a função de alternar som
+        toggleSound();
     });
-    
+
     // Adiciona listener para eventos de volume
     player.on('volumechange', function(data) {
         console.log('Volume alterado:', data.volume);
+        isMuted = data.volume === 0;
+        updateSoundUI();
     });
     
     player.on('play', function() {

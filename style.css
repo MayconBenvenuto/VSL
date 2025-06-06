@@ -630,6 +630,8 @@ img {
     gap: 8px;
     z-index: 1000;
     transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .sound-toggle-btn:hover {
@@ -637,13 +639,20 @@ img {
     transform: scale(1.05);
 }
 
+.sound-toggle-btn.clicked {
+    transform: scale(0.95);
+    background: rgba(0, 0, 0, 0.9);
+}
+
 .sound-icon {
     font-size: 1.2em;
+    pointer-events: none;
 }
 
 .sound-text {
     font-size: 0.9em;
     font-weight: 500;
+    pointer-events: none;
 }
 
 /* Ajuste para dispositivos móveis */
@@ -652,6 +661,8 @@ img {
         bottom: 10px;
         right: 10px;
         padding: 8px 16px;
+        min-width: 120px;
+        justify-content: center;
     }
     
     .sound-text {
