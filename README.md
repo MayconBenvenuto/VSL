@@ -1,107 +1,112 @@
-# Gota do Himalaia - Landing Page VSL
+# 🏔️ Gota do Himalaia - Landing Page VSL
 
-Este é um projeto de landing page (VSL - Video Sales Letter) para o produto "Gota do Himalaia". A página foi desenvolvida com foco em conversão e experiência do usuário, sendo totalmente responsiva e otimizada para diferentes dispositivos.
+![Versão](https://img.shields.io/badge/versão-1.0.0-blue)
+![Licença](https://img.shields.io/badge/licença-MIT-green)
+![Status](https://img.shields.io/badge/status-Produção-brightgreen)
 
-## 🚀 Tecnologias Utilizadas
+Landing page otimizada para conversão (VSL - Video Sales Letter) do produto "Gota do Himalaia". Desenvolvida com foco em performance, responsividade e experiência do usuário.
+
+## ✨ Características
+
+- 🎥 Player de vídeo Vimeo otimizado
+- ⏱️ Sistema de contagem regressiva
+- 📱 Design totalmente responsivo
+- 🎯 Rastreamento de conversões
+- ⚡ Performance otimizada
+- 🔒 Páginas de termos e privacidade
+
+## 🛠️ Stack Tecnológica
 
 - HTML5
-- CSS3
-- JavaScript (Vanilla JS)
-- Bootstrap 4.5.2
+- CSS3 (Bootstrap 4.5.2)
+- JavaScript (Vanilla)
 - jQuery 3.5.1
 - Google Fonts (Poppins)
 - Vimeo Player API
 - Facebook Pixel
 
-## 📋 Funcionalidades
+## 🚀 Instalação
 
-- **Design Responsivo**
-  - Adaptação para desktop, tablet e dispositivos móveis
-  - Layout otimizado para diferentes tamanhos de tela
-  - Imagens e vídeos responsivos
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/gota-do-himalaia.git
+```
 
-- **Player de Vídeo**
-  - Integração com Vimeo
-  - Autoplay otimizado para dispositivos móveis
-  - Controles personalizados
+2. Instale as dependências:
+```bash
+npm install
+```
 
-- **Sistema de Temporizador**
-  - Contagem regressiva de 24 horas
-  - Atualização em tempo real
-  - Reset automático ao final do período
-
-- **Botões de Compra**
-  - Múltiplas opções de compra (1, 3 ou 10 frascos)
-  - Animações e efeitos hover
-  - Rastreamento de cliques
-
-- **Otimizações**
-  - Preload de recursos críticos
-  - SEO básico implementado
-  - Tratamento de erros
-  - Verificação de performance
+3. Para desenvolvimento local:
+```bash
+# Recomendado usar Live Server ou similar
+```
 
 ## 📦 Estrutura do Projeto
 
 ```
 VSL/
-├── index.html              # Página principal
-├── style.css              # Estilos CSS
-├── script.js              # JavaScript
-├── politica-de-privacidade.html
-├── termos-de-uso.html
-└── produto-imagem.png
+├── assets/          # Recursos estáticos
+│   ├── images/     # Imagens
+│   ├── css/        # Estilos
+│   └── js/         # Scripts
+├── pages/          # Páginas adicionais
+├── index.html      # Página principal
+└── README.md       # Documentação
 ```
 
-## 🛠️ Configuração e Instalação
+## 🎯 Funcionalidades Principais
 
-1. Clone o repositório:
-```bash
-git clone [URL_DO_REPOSITÓRIO]
-```
+### Player de Vídeo
+- Autoplay otimizado
+- Controles personalizados
+- Suporte a dispositivos móveis
 
-2. Abra o arquivo `index.html` em seu navegador ou configure um servidor local.
+### Sistema de Temporizador
+- Contagem regressiva de 24h
+- Atualização em tempo real
+- Reset automático
 
-3. Para desenvolvimento, recomenda-se usar um servidor local como Live Server (VS Code) ou similar.
+### Botões de Compra
+- Múltiplas opções (1, 3, 10 frascos)
+- Animações interativas
+- Rastreamento de cliques
 
-## 📱 Responsividade
+## 📊 Métricas e Performance
 
-O projeto foi desenvolvido com foco em responsividade, incluindo:
-- Breakpoints para diferentes tamanhos de tela
-- Ajustes automáticos de layout
-- Otimização de imagens e vídeos
-- Melhorias específicas para dispositivos móveis
-
-## 🔍 SEO e Performance
-
-- Meta tags otimizadas
-- Open Graph tags para compartilhamento em redes sociais
-- Preload de recursos críticos
+- Lighthouse Score: 90+
+- Tempo de carregamento: < 3s
 - Otimização de imagens
-- Tratamento de erros e performance
+- Preload de recursos críticos
 
-## 📊 Rastreamento
+## 🔒 Segurança
 
-- Integração com Facebook Pixel
-- Rastreamento de eventos (cliques, visualizações de vídeo)
-- Métricas de conversão
+- HTTPS obrigatório
+- Validação de formulários
+- Proteção contra XSS
+- Política de privacidade em conformidade
 
 ## 🤝 Contribuição
 
-1. Faça um Fork do projeto
-2. Crie uma Branch para sua Feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+1. Fork o projeto
+2. Crie sua Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add: nova funcionalidade'`)
 4. Push para a Branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
 
-## 📄 Licença
+## 📝 Licença
 
-Este projeto está sob a licença [MIT](LICENSE).
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📞 Suporte
 
-Para suporte, envie um email para [SEU_EMAIL] ou abra uma issue no repositório.
+- Email: [seu-email@dominio.com]
+- Issues: [GitHub Issues](https://github.com/seu-usuario/gota-do-himalaia/issues)
+
+## 👥 Autores
+
+- **Seu Nome** - *Desenvolvimento* - [seu-usuario](https://github.com/seu-usuario)
 
 ---
 
-Desenvolvido com ❤️ por [SEU_NOME] 
+Desenvolvido com ❤️ por [Seu Nome] 

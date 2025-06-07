@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /pages/
+
+# Sitemap
+Sitemap: https://seu-dominio.com/sitemap.xml
+
+# Disallow
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.github/ 
