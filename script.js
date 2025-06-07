@@ -14,26 +14,65 @@ function initCountdown() {
         return;
     }
 
-    // Define o tempo final (24 horas a partir de agora)
-    const endTime = new Date();
-    endTime.setHours(endTime.getHours() + 24);
+    const localStorageKey = 'countdownStartTime'; // Key para armazenar o tempo de INÍCIO
+    let startTimeMillis; // Tempo de início do ciclo de 24h
+
+    // Tenta carregar o tempo de início do localStorage
+    const savedStartTime = localStorage.getItem(localStorageKey);
+    const nowMillis = Date.now();
+
+    if (savedStartTime) {
+        startTimeMillis = parseInt(savedStartTime);
+        console.log('DEBUG TIMER: Tempo de início carregado (milissegundos):', startTimeMillis);
+        console.log('DEBUG TIMER: Data/Hora de início carregada:', new Date(startTimeMillis));
+
+        // Calcula a data de expiração com base no tempo de início salvo
+        const calculatedExpirationTime = startTimeMillis + (24 * 60 * 60 * 1000);
+
+        // Se a data de expiração calculada já passou, significa que o ciclo de 24h terminou.
+        // Então, definimos um novo tempo de início (o "agora") e salvamos.
+        if (calculatedExpirationTime <= nowMillis) {
+            console.log('DEBUG TIMER: Ciclo de 24 horas anterior expirou. Iniciando novo ciclo.');
+            startTimeMillis = nowMillis;
+            localStorage.setItem(localStorageKey, startTimeMillis.toString());
+            console.log('DEBUG TIMER: Novo tempo de início salvo após expiração:', new Date(startTimeMillis));
+        }
+    } else {
+        // Se não há tempo de início salvo, define o agora como o tempo de início e salva.
+        startTimeMillis = nowMillis;
+        localStorage.setItem(localStorageKey, startTimeMillis.toString());
+        console.log('DEBUG TIMER: Nenhum tempo de início encontrado. Salvando novo tempo de início:', new Date(startTimeMillis));
+    }
+
+    // A partir do tempo de início (seja ele carregado ou novo), calculamos o tempo final.
+    let endTimeMillis = startTimeMillis + (24 * 60 * 60 * 1000);
+
+    console.log('DEBUG TIMER: Data/Hora atual:', new Date(nowMillis));
+    console.log('DEBUG TIMER: Data/Hora de expiração calculada:', new Date(endTimeMillis));
+    console.log('DEBUG TIMER: Tempo restante inicial (milissegundos):', endTimeMillis - nowMillis);
+
 
     function updateTimer() {
-        const now = new Date();
-        const timeLeft = endTime - now;
+        const currentNowMillis = Date.now();
+        const timeLeft = endTimeMillis - currentNowMillis;
 
         if (timeLeft <= 0) {
-            // Reset do temporizador quando chegar a zero
-            endTime.setHours(endTime.getHours() + 24);
-            return;
+            // O temporizador chegou a zero. Inicia um novo ciclo de 24 horas.
+            console.log('DEBUG TIMER: Temporizador chegou a zero. Reiniciando para um novo ciclo de 24 horas.');
+            startTimeMillis = currentNowMillis; // Novo tempo de início é o momento atual
+            localStorage.setItem(localStorageKey, startTimeMillis.toString());
+            endTimeMillis = startTimeMillis + (24 * 60 * 60 * 1000); // Novo tempo final
+            console.log('DEBUG TIMER: Novo tempo de início salvo após reset:', new Date(startTimeMillis));
+            console.log('DEBUG TIMER: Novo tempo de expiração após reset:', new Date(endTimeMillis));
+            // Não é necessário `return` aqui, a próxima iteração do setInterval vai pegar o novo endTimeMillis
         }
 
-        // Calcula horas, minutos e segundos
+        // Calcula horas, minutos e segundos a partir do tempo restante
         const hours = Math.floor(timeLeft / (1000 * 60 * 60));
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-        // Atualiza os elementos com zero à esquerda
+        // Atualiza os elementos do display com zeros à esquerda
         hoursElement.textContent = hours.toString().padStart(2, '0');
         minutesElement.textContent = minutes.toString().padStart(2, '0');
         secondsElement.textContent = seconds.toString().padStart(2, '0');

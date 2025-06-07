@@ -160,20 +160,27 @@ header .lead {
 
 /* Footer - Botões de Compra */
 #cta-section {
-    background-color: #ff8c00b9; /* Alterado para laranja */
+    background-color: #ff8c00b9;
     padding: 30px 0;
-    border-top: 5px solid #ff4500; /* Mantendo uma borda laranja mais escura ou ajustando */
+    border-top: 5px solid #ff4500;
     margin-top: 30px;
+    border-radius: 20px; /* Adiciona cantos arredondados */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Adiciona sombra suave */
+    backdrop-filter: blur(8px); /* Efeito de vidro fosco */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+    margin: 30px 15px 0 15px; /* Adiciona margens laterais */
 }
 
 #cta-section h2 {
-    color: #ffffff; /* Texto branco para contraste com fundo laranja */
+    color: #ffffff;
     margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adiciona sombra ao texto */
 }
 
 #cta-section p {
-    color: #f0f0f0; /* Texto levemente mais claro para contraste */
+    color: #f0f0f0;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Adiciona sombra sutil ao texto */
 }
 
 /* Estilos para a imagem miniatura dentro do botão */
