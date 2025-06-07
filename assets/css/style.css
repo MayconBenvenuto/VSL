@@ -355,129 +355,144 @@ header .lead {
 }
 
 /* Responsividade */
-@media (max-width: 768px) { /* Tablets e celulares maiores em modo paisagem */
+@media (max-width: 768px) {
     header h1 {
-        font-size: 2em;
+        font-size: 1.8em;
+        padding: 0 15px;
     }
 
     header .lead {
-        font-size: 1.1em; /* Ajustado de 1em */
+        font-size: 1em;
+        padding: 0 15px;
     }
 
-    #video-section h2,
-    #timer-section h3,
-    #cta-section h2 {
-        font-size: 1.5em;
-    }
-
-    #cta-section p {
-        font-size: 0.95em;
+    #video-section h2 {
+        font-size: 1.6em;
+        padding: 0 15px;
     }
 
     #cta-section {
-        padding: 20px 10px; /* Padding vertical reduzido, horizontal adicionado para respiro */
+        margin: 30px 10px;
+        padding: 30px 15px;
     }
 
-    main.container {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    section {
-        padding-top: 1rem;    /* Bootstrap usa rem, consistência */
-        padding-bottom: 1rem;
-        margin-bottom: 1rem; /* Espaçamento entre seções */
+    #cta-section h2 {
+        font-size: 2em;
     }
 
     .btn-purchase {
-        font-size: 1.1em; 
-        padding: 10px 15px; 
-        animation: floatAnimation 3s ease-in-out infinite; /* Adiciona a animação de flutuação */
+        padding: 15px;
+        font-size: 1em;
     }
 
     .product-thumb-button {
-        max-height: 60px; /* Aumentado de 45px */
+        max-height: 60px;
     }
 
-    .btn-purchase small {
-        font-size: 0.7em; 
+    #product-image-section {
+        margin: 30px 15px;
+        padding: 15px;
     }
 
     #product-image-section .product-image {
-        max-width: 280px; /* Reduzir um pouco em tablets */
+        max-width: 8em;
     }
 }
 
 @media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
     header h1 {
         font-size: 1.5em;
-        padding: 0 10px;
+        line-height: 1.3;
     }
 
     header .lead {
-        font-size: 0.95em;
+        font-size: 0.9em;
     }
 
-    #video-section h2,
-    #timer-section h3, 
-    #cta-section h2 {
-        font-size: 1.3em; 
-        margin-bottom: 0.7rem;
+    main.container {
+        padding: 0 10px;
     }
 
-    p, #timer-section p, #cta-section p {
-        font-size: 0.85em; 
-        line-height: 1.5;
+    #video-section {
+        margin: 20px 0;
     }
 
-    #cta-section {
-        padding: 10px;
+    #video-section h2 {
+        font-size: 1.4em;
+    }
+
+    .vimeo-video-display {
+        margin: 15px 0;
+    }
+
+    #product-image-section {
+        margin: 20px 10px;
+    }
+
+    #product-image-section .product-image {
+        max-width: 6em;
+    }
+
+    #timer-section {
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    #timer-section h3 {
+        font-size: 1.3em;
     }
 
     #countdown-timer {
-        font-size: 1.4em;
-        padding: 8px;
+        font-size: 2.5em;
+        padding: 10px 20px;
+    }
+
+    #timer-section p {
+        font-size: 0.9em;
+    }
+
+    #cta-section {
+        margin: 20px 5px;
+        padding: 20px 10px;
+    }
+
+    #cta-section h2 {
+        font-size: 1.6em;
+    }
+
+    #cta-section p {
+        font-size: 0.9em;
     }
 
     .btn-purchase {
-        font-size: 1em;
-        padding: 10px;
+        padding: 12px;
+        font-size: 0.9em;
+        margin: 5px 0;
     }
 
     .product-thumb-button {
         max-height: 50px;
     }
 
-    .btn-purchase small {
-        font-size: 0.7em; /* Ajustado para manter proporção */
+    .installment-price {
+        font-size: 0.9em;
     }
 
-    /* Remover margem do último botão no grupo para evitar espaçamento duplo com o footer */
-    #cta-section .col-md-4:last-child .btn-purchase { /* Se os botões estiverem dentro de col-md-4 */
-        margin-bottom: 0;
-    }
-    /* Se os botões não estiverem em col-md-4, mas diretamente em um container flex ou block,
-       você pode precisar de um seletor mais genérico para o último filho,
-       ou ajustar o HTML para que o Bootstrap cuide do espaçamento (ex: usando 'gap' no container pai se for flex/grid) */
-
-    #product-image-section .product-image {
-        max-width: 3em; /* Reduzindo o tamanho para dispositivos móveis */
+    .sound-toggle-btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
     }
 
-    /* Ajustes finos para espaçamento do container principal em telas pequenas */
-    main.container.my-4 {
-        margin-top: 1rem !important; /* Bootstrap my-4 = 1.5rem, reduzindo */
-        margin-bottom: 1rem !important;
-    }
-
-    .vimeo-video-display {
-        margin: 10px auto 20px auto;
-        border-radius: 8px;
-    }
-    
-    .vimeo-video-display iframe {
-        width: 100% !important;
-        height: 100% !important;
+    .sound-text {
+        font-size: 0.8em;
     }
 }
 
@@ -487,15 +502,64 @@ header .lead {
     }
 
     .btn-purchase {
-        font-size: 0.9em;
+        padding: 10px;
+        font-size: 0.85em;
     }
 
     .installment-price {
-        font-size: 1.2em;
+        font-size: 0.85em;
     }
 
     #product-image-section .product-image {
-        max-width: 2em; /* Ainda menor para telas muito pequenas */
+        max-width: 5em;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+
+    #countdown-timer {
+        font-size: 2em;
+    }
+
+    .btn-purchase {
+        font-size: 0.8em;
+    }
+
+    .product-thumb-button {
+        max-height: 40px;
+    }
+}
+
+/* Ajustes para orientação paisagem em dispositivos móveis */
+@media (max-height: 500px) and (orientation: landscape) {
+    header {
+        padding: 5px 0;
+    }
+
+    #video-section {
+        margin: 10px 0;
+    }
+
+    #product-image-section {
+        margin: 10px 0;
+    }
+
+    #timer-section {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    #cta-section {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .btn-purchase {
+        padding: 8px;
     }
 }
 

@@ -4,6 +4,7 @@
   "description": "Landing page VSL para o produto Gota do Himalaia",
   "main": "index.html",
   "scripts": {
+    "dev": "serve -s",
     "start": "serve",
     "test": "lighthouse http://localhost:3000",
     "lint:css": "stylelint 'assets/css/*.css'",
